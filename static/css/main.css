@@ -1,0 +1,10 @@
+body {
+  background-color:"lightgrey";
+}
+form {
+  border: 1px solid blue;
+  background-color:"lightgreen"
+}
+input{
+  display:block;
+}

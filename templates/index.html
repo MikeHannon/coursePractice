@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Users Form -->
+  <form action="/users" method = "post">
+    <input type="text" name = "first_name">
+    <input type="text" name = "last_name">
+    <input type="submit" value = "Add User">
+  </form>
+  <!-- Courses Form -->
+  <form action="/classes" method = "post">
+    <input type="text" name = "title">
+    <textarea name="description" rows="8" cols="40"></textarea>
+    <input type="submit" value = "Add Course">
+  </form>
+  <!-- Users Have Courses Form -->
+
+  <form action="/users_have_classes" method = "post">
+    <select name="user_id">
+      {% for user in users %}
+      <option value="{{user['id']}}">{{user['first_name']}} {{user['last_name']}}</option>
+      {% endfor %}
+    </select>
+    <select name="course_id">
+      {% for course in classes %}
+      <option value="{{course['id']}}">{{course['title']}}</option>
+      {% endfor %}
+    </select>
+    <select name="level">
+      <option value = "instructor">Instructor</option>
+      <option value = "instructor">Student</option>
+    </select>
+    <input type="submit" value = "add user to class">
+  </form>
+
+</body>
+</html>

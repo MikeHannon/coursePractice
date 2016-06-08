@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  {% for course in courses %}
+  <h5>{{course['title']}}</h5>
+  <p>{{course['description']}}</p>
+  <a href = "/courses/{{course['id']}}">Join This Course</a>
+  <hr>
+  {% endfor %}
+
+</body>
+</html>
